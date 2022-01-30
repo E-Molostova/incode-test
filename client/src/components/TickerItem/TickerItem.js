@@ -1,5 +1,3 @@
-import { useDispatch } from "react-redux";
-import { tickersOperations } from "../../redux/tickers";
 import { ArrowUp, ArrowDown } from "../IconsSvg";
 import s from "./TickerItem.module.scss";
 
@@ -14,12 +12,7 @@ const TickerItem = ({
   lastTradeTime,
   isPriceUp,
 }) => {
-  const dispatch = useDispatch();
-  const onRemoveUser = () => {
-    dispatch(tickersOperations.deleteTicker(ticker));
-  };
-
-  return (
+    return (
     <li className={s.ticker}>
       <div className={s.tickerTitle}> {ticker}</div>
       <div className={s.exchange}>{exchange}</div>

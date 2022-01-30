@@ -1,4 +1,4 @@
-const ArrowDown = function () {
+const ArrowDown = () => {
   return (
     <svg
       className="icon-arrow-down"
