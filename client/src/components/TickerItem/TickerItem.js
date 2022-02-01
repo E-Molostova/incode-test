@@ -1,4 +1,4 @@
-import { ArrowUp, ArrowDown } from "../IconsSvg";
+import sprite from "../../icons/symbol-defs.svg";
 import s from "./TickerItem.module.scss";
 
 const TickerItem = ({
@@ -12,16 +12,25 @@ const TickerItem = ({
   lastTradeTime,
   isPriceUp,
 }) => {
-    return (
+  return (
     <li className={s.ticker}>
-      <div className={s.tickerTitle}> {ticker}</div>
+      <h3 className={s.tickerTitle}> {ticker}</h3>
       <div className={s.exchange}>{exchange}</div>
       <div className={isPriceUp ? s.up : s.down}>{price}</div>
       <div className={s.change}> {change}</div>
       <div
         className={`${s.percent} ${isPriceUp ? s.upPercent : s.downPercent}`}
       >
-        {isPriceUp ? <ArrowUp /> : <ArrowDown />}&nbsp;
+        {isPriceUp ? (
+          <svg className={s.arrowUp} width="14" height="14">
+            <use href={sprite + "#icon-arrow-up"}></use>
+          </svg>
+        ) : (
+          <svg className={s.arrowDown} width="14" height="14">
+            <use href={sprite + "#icon-arrow-down"}></use>
+          </svg>
+        )}
+        &nbsp;
         {changePercent}&nbsp;%
       </div>
       <div className={s.yd}>{yd}</div>

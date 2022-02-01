@@ -9,7 +9,7 @@ import {
 const initialState = [];
 
 const tickers = createReducer(initialState, {
-  [getTickersSuccess]: (state, action) => action.payload,
+  [getTickersSuccess]: (_, action) => action.payload,
 });
 
 const loading = createReducer(false, {
